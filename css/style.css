@@ -1,0 +1,642 @@
+/* css/style.css — Expense & Budget Visualizer */
+
+/* ============================================================
+   2.1 — Design tokens (CSS custom properties) + base reset
+   ============================================================ */
+
+:root {
+  /* Colour palette — light mode */
+  --color-bg:           #f0f2f5;
+  --color-surface:      #ffffff;
+  --color-surface-alt:  #f8f9fb;
+  --color-border:       #e2e6ea;
+  --color-text:         #1a1d23;
+  --color-text-muted:   #6b7280;
+  --color-primary:      #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-danger:       #dc2626;
+  --color-danger-bg:    #fef2f2;
+  --color-delete:       #ef4444;
+  --color-delete-hover: #dc2626;
+  --color-shadow:       rgba(0, 0, 0, 0.08);
+  --color-shadow-hover: rgba(0, 0, 0, 0.14);
+
+  /* Spacing scale */
+  --space-xs:  4px;
+  --space-sm:  8px;
+  --space-md:  16px;
+  --space-lg:  24px;
+  --space-xl:  32px;
+  --space-2xl: 48px;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+
+  /* Typography */
+  --font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-size-xs:   12px;
+  --font-size-sm:   14px;
+  --font-size-md:   16px;
+  --font-size-lg:   20px;
+  --font-size-xl:   28px;
+  --font-size-2xl:  36px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* Layout */
+  --header-height: 72px;
+  --card-padding: var(--space-lg);
+  --list-max-height: 380px;
+}
+
+/* Minimal reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: var(--font-size-md);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  min-height: 100vh;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* ============================================================
+   2.2 — Header, balance card, theme toggle
+   ============================================================ */
+
+#app-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--space-lg);
+  min-height: 140px;
+  padding: 20px var(--space-xl);
+  background-color: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 8px var(--color-shadow);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.app-title {
+  margin: 0;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+}
+
+.header-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+#balance-display {
+  font-size:clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  letter-spacing: -0.5px;
+  line-height: 1;
+  /* Accessible label is set via aria-label on the element */
+}
+
+#theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-pill);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+#theme-toggle:hover {
+  background-color: var(--color-border);
+  transform: scale(1.1);
+}
+
+#theme-toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   Main layout — 2-column grid on wide screens
+   ============================================================ */
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "form  chart"
+    "list  chart";
+  gap: var(--space-lg);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-xl);
+  align-items: start;
+}
+
+#form-section  { grid-area: form; }
+#chart-section { grid-area: chart; }
+#list-section  { grid-area: list; }
+
+/* Shared card style for all sections */
+main > section {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 12px var(--color-shadow);
+  padding: var(--card-padding);
+  transition:
+    background-color var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+main > section:hover {
+  box-shadow: 0 4px 20px var(--color-shadow-hover);
+}
+
+main > section h2 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-base), border-color var(--transition-base);
+}
+
+
+/* ============================================================
+   2.3 — Input form card
+   ============================================================ */
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  background-color: var(--color-surface-alt);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  background-color: var(--color-surface);
+}
+
+.form-group input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.7;
+}
+
+/* Inline error messages — hidden by default, shown by JS */
+.error-message {
+  display: none;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-danger);
+  min-height: 1rem;
+}
+
+/* JS shows errors by setting display or by adding a class */
+.error-message:not(:empty) {
+  display: block;
+}
+
+/* Submit button */
+#add-btn {
+  display: block;
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: #ffffff;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-sm);
+  border: none;
+  margin-top: var(--space-sm);
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+#add-btn:hover {
+  background-color: var(--color-primary-dark);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+#add-btn:active {
+  transform: translateY(1px);
+}
+
+#add-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+
+/* ============================================================
+   2.4 — Transaction list card
+   ============================================================ */
+
+#transaction-list {
+  max-height: var(--list-max-height);
+  overflow-y: auto;
+  margin-bottom: var(--space-sm);
+  /* Custom scrollbar — subtle */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-border) transparent;
+}
+
+#transaction-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+#transaction-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#transaction-list::-webkit-scrollbar-thumb {
+  background-color: var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+/* Individual transaction rows */
+#transaction-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  border-bottom: 1px solid var(--color-border);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+#transaction-list li:last-child {
+  border-bottom: none;
+}
+
+#transaction-list li:hover {
+  background-color: var(--color-surface-alt);
+}
+
+/* Item name — takes remaining space, truncates with ellipsis */
+.tx-name {
+  flex: 1 1 0;
+  min-width: 0;          /* needed for text-overflow to work in flex */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+/* Amount */
+.tx-amount {
+  flex-shrink: 0;
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+}
+
+/* Category badge */
+.tx-category {
+  flex-shrink: 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-muted);
+  background-color: var(--color-surface-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  padding: 2px 10px;
+  white-space: nowrap;
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+/* Delete button on each row */
+.delete-btn {
+  flex-shrink: 0;
+  padding: 4px 10px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-delete);
+  background-color: transparent;
+  border: 1px solid var(--color-delete);
+  border-radius: var(--radius-sm);
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.delete-btn:hover {
+  background-color: var(--color-delete);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.delete-btn:active {
+  transform: scale(0.97);
+}
+
+.delete-btn:focus-visible {
+  outline: 2px solid var(--color-delete);
+  outline-offset: 2px;
+}
+
+/* Empty state */
+#empty-state {
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  padding: var(--space-xl) 0;
+  font-style: italic;
+}
+
+
+/* ============================================================
+   2.5 — Chart card
+   ============================================================ */
+
+#chart-section {
+  /* Chart section stays aligned to both grid rows on wide screens */
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+}
+
+#chart-section h2 {
+  flex-shrink: 0;
+}
+
+/* Canvas fills available card space */
+#spending-chart {
+  flex: 1;
+  width: 100%;
+  max-height: 360px;
+  object-fit: contain;
+}
+
+/* Placeholder when canvas is hidden or CDN fails */
+#chart-placeholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+  padding: var(--space-2xl) var(--space-md);
+  min-height: 200px;
+}
+
+
+/* ============================================================
+   2.6 — Dark mode overrides (body.dark)
+   ============================================================ */
+
+body.dark {
+  --color-bg:           #0f1117;
+  --color-surface:      #1c1f26;
+  --color-surface-alt:  #252930;
+  --color-border:       #353a45;
+  --color-text:         #e8eaf0;
+  --color-text-muted:   #9ca3af;
+  --color-primary:      #60a5fa;
+  --color-primary-dark: #93c5fd;
+  --color-danger:       #f87171;
+  --color-danger-bg:    #450a0a;
+  --color-delete:       #f87171;
+  --color-delete-hover: #fca5a5;
+  --color-shadow:       rgba(0, 0, 0, 0.4);
+  --color-shadow-hover: rgba(0, 0, 0, 0.6);
+}
+
+/* Ensure form inputs stay readable in dark mode */
+body.dark .form-group input,
+body.dark .form-group select {
+  color-scheme: dark;
+}
+
+/* Delete button hover in dark mode — keep text dark for contrast */
+body.dark .delete-btn:hover {
+  color: #0f1117;
+}
+
+
+/* ============================================================
+   Error toast — fixed bottom notification
+   ============================================================ */
+
+#error-toast {
+  position: fixed;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%) translateY(120%);
+  z-index: 9999;
+  min-width: 280px;
+  max-width: 480px;
+  padding: var(--space-sm) var(--space-lg);
+  background-color: var(--color-danger);
+  color: #ffffff;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  pointer-events: none;
+  opacity: 0;
+  transition:
+    transform var(--transition-base),
+    opacity var(--transition-base);
+}
+
+/* JS adds this class to show the toast */
+#error-toast.visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+
+/* ============================================================
+   2.7 — Responsive layout (single column below 600 px)
+   ============================================================ */
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "form"
+      "chart"
+      "list";
+    padding: var(--space-md);
+    gap: var(--space-md);
+  }
+
+  #app-header {
+    padding: 0 var(--space-md);
+  }
+
+  #balance-display {
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  main > section {
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+  }
+
+  #app-header {
+    padding: 0 var(--space-md);
+    height: 60px;
+  }
+
+  #balance-display {
+    font-size: var(--font-size-lg);
+  }
+
+  /* Transaction list rows adapt for narrow screens */
+  #transaction-list li {
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+  }
+
+  .tx-name {
+    width: 100%;
+    flex-basis: 100%;
+  }
+
+  .tx-amount,
+  .tx-category,
+  .delete-btn {
+    flex-shrink: 0;
+  }
+
+  #spending-chart {
+    max-height: 280px;
+  }
+}
+
+/* Print — strip colour, hide controls */
+@media print {
+  #app-header,
+  #form-section,
+  .delete-btn,
+  #error-toast {
+    display: none !important;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "chart"
+      "list";
+  }
+}

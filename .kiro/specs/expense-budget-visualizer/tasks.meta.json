@@ -1,0 +1,422 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Scaffold project structure and HTML skeleton": [
+      {
+        "executionId": "ffd41081-e6cb-4fef-a780-13eb0a476190",
+        "chatSessionId": "sess_255a62f9-cc00-4864-9adf-ca173eb2c44a",
+        "timestamp": 1786044839665
+      },
+      {
+        "executionId": "ffd41081-e6cb-4fef-a780-13eb0a476190",
+        "chatSessionId": "sess_255a62f9-cc00-4864-9adf-ca173eb2c44a",
+        "timestamp": 1786045150874
+      }
+    ],
+    "2. Implement CSS layout, design tokens, and component styles": [
+      {
+        "executionId": "e5cc616d-a184-4ecc-834a-bc2715a78d48",
+        "chatSessionId": "sess_fefeb6fd-15d7-4f55-96ca-f196174526f1",
+        "timestamp": 1786045189088
+      },
+      {
+        "executionId": "e5cc616d-a184-4ecc-834a-bc2715a78d48",
+        "chatSessionId": "sess_fefeb6fd-15d7-4f55-96ca-f196174526f1",
+        "timestamp": 1786045392338
+      }
+    ],
+    "2.1 Define CSS custom properties (design tokens) and base reset": [
+      {
+        "executionId": "e5cc616d-a184-4ecc-834a-bc2715a78d48",
+        "chatSessionId": "sess_fefeb6fd-15d7-4f55-96ca-f196174526f1",
+        "timestamp": 1786045358960
+      },
+      {
+        "executionId": "f56bef4c-694f-4a8e-bc84-d2a7e885292a",
+        "chatSessionId": "sess_437a8bc2-f412-4b94-a8ea-0abe0c0ec581",
+        "timestamp": 1786045409914
+      },
+      {
+        "executionId": "f56bef4c-694f-4a8e-bc84-d2a7e885292a",
+        "chatSessionId": "sess_437a8bc2-f412-4b94-a8ea-0abe0c0ec581",
+        "timestamp": 1786045442740
+      }
+    ],
+    "2.2 Style the header, balance card, and theme toggle button": [
+      {
+        "executionId": "e5cc616d-a184-4ecc-834a-bc2715a78d48",
+        "chatSessionId": "sess_fefeb6fd-15d7-4f55-96ca-f196174526f1",
+        "timestamp": 1786045365185
+      },
+      {
+        "executionId": "35ff9c02-69b4-4d4a-bd8d-5aa7dab90f60",
+        "chatSessionId": "sess_2cac82c3-0a87-4dc8-bcb9-8817e50de8be",
+        "timestamp": 1786045455460
+      },
+      {
+        "executionId": "35ff9c02-69b4-4d4a-bd8d-5aa7dab90f60",
+        "chatSessionId": "sess_2cac82c3-0a87-4dc8-bcb9-8817e50de8be",
+        "timestamp": 1786045494291
+      }
+    ],
+    "2.3 Style the input form card": [
+      {
+        "executionId": "e5cc616d-a184-4ecc-834a-bc2715a78d48",
+        "chatSessionId": "sess_fefeb6fd-15d7-4f55-96ca-f196174526f1",
+        "timestamp": 1786045369981
+      }
+    ],
+    "2.4 Style the transaction list card": [
+      {
+        "executionId": "e5cc616d-a184-4ecc-834a-bc2715a78d48",
+        "chatSessionId": "sess_fefeb6fd-15d7-4f55-96ca-f196174526f1",
+        "timestamp": 1786045376225
+      }
+    ],
+    "2.5 Style the chart card": [
+      {
+        "executionId": "e5cc616d-a184-4ecc-834a-bc2715a78d48",
+        "chatSessionId": "sess_fefeb6fd-15d7-4f55-96ca-f196174526f1",
+        "timestamp": 1786045380974
+      }
+    ],
+    "2.6 Implement dark mode CSS and body-level class toggle": [
+      {
+        "executionId": "e5cc616d-a184-4ecc-834a-bc2715a78d48",
+        "chatSessionId": "sess_fefeb6fd-15d7-4f55-96ca-f196174526f1",
+        "timestamp": 1786045386736
+      }
+    ],
+    "2.7 Implement responsive layout (single-column on small screens)": [
+      {
+        "executionId": "e5cc616d-a184-4ecc-834a-bc2715a78d48",
+        "chatSessionId": "sess_fefeb6fd-15d7-4f55-96ca-f196174526f1",
+        "timestamp": 1786045392269
+      }
+    ],
+    "3. Implement JavaScript core — state, storage, and entry point": [
+      {
+        "executionId": "b8f40b97-6fa6-4c2c-9b5f-9fdb38228562",
+        "chatSessionId": "sess_ae0c14bc-576f-4b4c-a541-71e4eb5660c1",
+        "timestamp": 1786045624855
+      },
+      {
+        "executionId": "b8f40b97-6fa6-4c2c-9b5f-9fdb38228562",
+        "chatSessionId": "sess_ae0c14bc-576f-4b4c-a541-71e4eb5660c1",
+        "timestamp": 1786045694984
+      }
+    ],
+    "3.1 Declare module-level state variables and constants": [
+      {
+        "executionId": "eb61091b-1c2b-4520-bbd1-004c606e52c0",
+        "chatSessionId": "sess_bda6d268-4191-435f-95ec-9bb0b3ed475d",
+        "timestamp": 1786045707889
+      },
+      {
+        "executionId": "eb61091b-1c2b-4520-bbd1-004c606e52c0",
+        "chatSessionId": "sess_bda6d268-4191-435f-95ec-9bb0b3ed475d",
+        "timestamp": 1786045735312
+      }
+    ],
+    "3.2 Implement `loadTransactions()`": [
+      {
+        "executionId": "e186e9bd-1366-497a-a36f-537d598d6c2e",
+        "chatSessionId": "sess_79b7ce95-fd9d-4156-8197-7091f8a998f2",
+        "timestamp": 1786045745400
+      },
+      {
+        "executionId": "e186e9bd-1366-497a-a36f-537d598d6c2e",
+        "chatSessionId": "sess_79b7ce95-fd9d-4156-8197-7091f8a998f2",
+        "timestamp": 1786045778350
+      }
+    ],
+    "3.4 Implement `saveTransactions(transactions)`": [
+      {
+        "executionId": "08956cca-eda5-490b-a598-bdd8f1c635df",
+        "chatSessionId": "sess_2b5b5004-2d2b-4b34-9ec3-74fa4b3f5298",
+        "timestamp": 1786045792725
+      },
+      {
+        "executionId": "08956cca-eda5-490b-a598-bdd8f1c635df",
+        "chatSessionId": "sess_2b5b5004-2d2b-4b34-9ec3-74fa4b3f5298",
+        "timestamp": 1786045823592
+      }
+    ],
+    "3.7 Implement `init()` entry point": [
+      {
+        "executionId": "99141308-46c4-45a8-9214-a102c813fd5b",
+        "chatSessionId": "sess_bcb58583-9818-40ca-977a-27ff53813774",
+        "timestamp": 1786045848736
+      }
+    ],
+    "4. Checkpoint — verify scaffolding and storage": [
+      {
+        "executionId": "54ec3907-7c25-4a43-9fa5-f750b933643c",
+        "chatSessionId": "sess_43ae5099-1991-4f2f-ba42-be2f763c8cae",
+        "timestamp": 1786045868233
+      },
+      {
+        "executionId": "54ec3907-7c25-4a43-9fa5-f750b933643c",
+        "chatSessionId": "sess_43ae5099-1991-4f2f-ba42-be2f763c8cae",
+        "timestamp": 1786045881562
+      }
+    ],
+    "5. Implement validation": [
+      {
+        "executionId": "5b9bf4fe-5855-4cbf-81d4-b5de756248ee",
+        "chatSessionId": "sess_cadda025-2e69-447c-b8ac-8b553bdb28f9",
+        "timestamp": 1786045895530
+      },
+      {
+        "executionId": "5b9bf4fe-5855-4cbf-81d4-b5de756248ee",
+        "chatSessionId": "sess_cadda025-2e69-447c-b8ac-8b553bdb28f9",
+        "timestamp": 1786045961294
+      }
+    ],
+    "5.1 Implement `validateForm(name, amount, category)`": [
+      {
+        "executionId": "5b9bf4fe-5855-4cbf-81d4-b5de756248ee",
+        "chatSessionId": "sess_cadda025-2e69-447c-b8ac-8b553bdb28f9",
+        "timestamp": 1786045956873
+      },
+      {
+        "executionId": "df99c5a0-60c5-4fa3-8ae1-1e5ef65f602c",
+        "chatSessionId": "sess_19461049-8d75-4e71-9794-3cbb0b4de26d",
+        "timestamp": 1786045973738
+      },
+      {
+        "executionId": "df99c5a0-60c5-4fa3-8ae1-1e5ef65f602c",
+        "chatSessionId": "sess_19461049-8d75-4e71-9794-3cbb0b4de26d",
+        "timestamp": 1786046011612
+      }
+    ],
+    "5.3 Implement `showError(message)` — error toast": [
+      {
+        "executionId": "5b9bf4fe-5855-4cbf-81d4-b5de756248ee",
+        "chatSessionId": "sess_cadda025-2e69-447c-b8ac-8b553bdb28f9",
+        "timestamp": 1786045961220
+      }
+    ],
+    "6. Implement UI render functions": [
+      {
+        "executionId": "631243d1-bc2f-41aa-ae0f-2790463f90dc",
+        "chatSessionId": "sess_e1ff3d32-c7a6-424a-acd0-d633a9ce7c3a",
+        "timestamp": 1786046046114
+      },
+      {
+        "executionId": "631243d1-bc2f-41aa-ae0f-2790463f90dc",
+        "chatSessionId": "sess_e1ff3d32-c7a6-424a-acd0-d633a9ce7c3a",
+        "timestamp": 1786048227979
+      }
+    ],
+    "6.1 Implement `renderBalance()`": [
+      {
+        "executionId": "631243d1-bc2f-41aa-ae0f-2790463f90dc",
+        "chatSessionId": "sess_e1ff3d32-c7a6-424a-acd0-d633a9ce7c3a",
+        "timestamp": 1786046102842
+      }
+    ],
+    "6.3 Implement `renderTransactionList()`": [
+      {
+        "executionId": "631243d1-bc2f-41aa-ae0f-2790463f90dc",
+        "chatSessionId": "sess_e1ff3d32-c7a6-424a-acd0-d633a9ce7c3a",
+        "timestamp": 1786048227829
+      },
+      {
+        "executionId": "66079e39-fb9f-4fae-8329-a16522e2b439",
+        "chatSessionId": "sess_3029ec90-9357-4dca-8bc3-f1fea61d7c58",
+        "timestamp": 1786072775714
+      },
+      {
+        "executionId": "66079e39-fb9f-4fae-8329-a16522e2b439",
+        "chatSessionId": "sess_3029ec90-9357-4dca-8bc3-f1fea61d7c58",
+        "timestamp": 1786072825549
+      }
+    ],
+    "7.1 Implement `handleFormSubmit(event)`": [
+      {
+        "executionId": "21b6eec9-cda0-4164-9541-9ad22543472b",
+        "chatSessionId": "sess_0c182e78-5cf2-468b-b518-93664bcfec53",
+        "timestamp": 1786072873808
+      },
+      {
+        "executionId": "21b6eec9-cda0-4164-9541-9ad22543472b",
+        "chatSessionId": "sess_0c182e78-5cf2-468b-b518-93664bcfec53",
+        "timestamp": 1786072966298
+      },
+      {
+        "executionId": "462b4e61-d921-4446-be5f-1d32250b7365",
+        "chatSessionId": "sess_31d26b16-f477-4fb4-9cc0-a370e99821ae",
+        "timestamp": 1786072990047
+      },
+      {
+        "executionId": "462b4e61-d921-4446-be5f-1d32250b7365",
+        "chatSessionId": "sess_31d26b16-f477-4fb4-9cc0-a370e99821ae",
+        "timestamp": 1786073026694
+      }
+    ],
+    "7.3 Implement `handleDeleteClick(event)` (event-delegated on `#transaction-list`)": [
+      {
+        "executionId": "21b6eec9-cda0-4164-9541-9ad22543472b",
+        "chatSessionId": "sess_0c182e78-5cf2-468b-b518-93664bcfec53",
+        "timestamp": 1786072879528
+      },
+      {
+        "executionId": "21b6eec9-cda0-4164-9541-9ad22543472b",
+        "chatSessionId": "sess_0c182e78-5cf2-468b-b518-93664bcfec53",
+        "timestamp": 1786072974608
+      }
+    ],
+    "7. Implement event handlers — form submit and delete": [
+      {
+        "executionId": "21b6eec9-cda0-4164-9541-9ad22543472b",
+        "chatSessionId": "sess_0c182e78-5cf2-468b-b518-93664bcfec53",
+        "timestamp": 1786072974741
+      }
+    ],
+    "8. Checkpoint — verify form and list behavior": [
+      {
+        "executionId": "10eba881-a2e8-4afa-94cd-780fc81b99e6",
+        "chatSessionId": "sess_ac96c7cf-cac5-4f19-873f-15a9f56d5fc6",
+        "timestamp": 1786073050959
+      },
+      {
+        "executionId": "10eba881-a2e8-4afa-94cd-780fc81b99e6",
+        "chatSessionId": "sess_ac96c7cf-cac5-4f19-873f-15a9f56d5fc6",
+        "timestamp": 1786073126035
+      }
+    ],
+    "9. Implement Chart.js pie chart integration": [
+      {
+        "executionId": "3e761fb6-e725-4f43-bdb8-4f6b98b9c239",
+        "chatSessionId": "sess_70d51cbb-71e9-4880-a078-e7164af1fff7",
+        "timestamp": 1786073149063
+      },
+      {
+        "executionId": "3e761fb6-e725-4f43-bdb8-4f6b98b9c239",
+        "chatSessionId": "sess_70d51cbb-71e9-4880-a078-e7164af1fff7",
+        "timestamp": 1786073230064
+      }
+    ],
+    "9.1 Implement `renderChart()`": [
+      {
+        "executionId": "d0912674-75ea-4d5b-af96-5faba350bfcb",
+        "chatSessionId": "sess_79c79526-52cc-4006-aced-2f6dffed6db0",
+        "timestamp": 1786073250232
+      },
+      {
+        "executionId": "d0912674-75ea-4d5b-af96-5faba350bfcb",
+        "chatSessionId": "sess_79c79526-52cc-4006-aced-2f6dffed6db0",
+        "timestamp": 1786073289388
+      }
+    ],
+    "9.3 Implement CDN failure detection": [
+      {
+        "executionId": "e1b1ba04-2c38-413a-89f6-32bc0d265590",
+        "chatSessionId": "sess_7ccdc7c3-4c5c-4cc0-9644-ffd99b609170",
+        "timestamp": 1786073306805
+      },
+      {
+        "executionId": "e1b1ba04-2c38-413a-89f6-32bc0d265590",
+        "chatSessionId": "sess_7ccdc7c3-4c5c-4cc0-9644-ffd99b609170",
+        "timestamp": 1786073346568
+      }
+    ],
+    "10. Implement dark/light mode toggle": [
+      {
+        "executionId": "839d3d8f-f283-4b0f-aea6-1a60f74917ac",
+        "chatSessionId": "sess_936a9987-7fa5-481d-97f3-34cc72deb2fa",
+        "timestamp": 1786073366747
+      },
+      {
+        "executionId": "839d3d8f-f283-4b0f-aea6-1a60f74917ac",
+        "chatSessionId": "sess_936a9987-7fa5-481d-97f3-34cc72deb2fa",
+        "timestamp": 1786073444789
+      }
+    ],
+    "10.1 Implement `handleThemeToggle()`": [
+      {
+        "executionId": "60a4b56e-e2bc-4f7c-895b-693ada5e296c",
+        "chatSessionId": "sess_c6759219-aed7-46c8-81f3-22d1d0924689",
+        "timestamp": 1786073463046
+      },
+      {
+        "executionId": "60a4b56e-e2bc-4f7c-895b-693ada5e296c",
+        "chatSessionId": "sess_c6759219-aed7-46c8-81f3-22d1d0924689",
+        "timestamp": 1786073500700
+      }
+    ],
+    "10.2 Apply saved theme on `init()`": [
+      {
+        "executionId": "5fb06af0-5988-4b25-8776-56a564e019a5",
+        "chatSessionId": "sess_310e580b-ed26-4d05-a505-30c301455e0c",
+        "timestamp": 1786073514215
+      },
+      {
+        "executionId": "5fb06af0-5988-4b25-8776-56a564e019a5",
+        "chatSessionId": "sess_310e580b-ed26-4d05-a505-30c301455e0c",
+        "timestamp": 1786073551816
+      }
+    ],
+    "11. Harden error handling and edge cases": [
+      {
+        "executionId": "ef7d73bc-da88-490c-9c18-ff0e5a4a6f41",
+        "chatSessionId": "sess_34a01788-930e-4b64-ba72-0f605b6ea4ca",
+        "timestamp": 1786073573577
+      },
+      {
+        "executionId": "ef7d73bc-da88-490c-9c18-ff0e5a4a6f41",
+        "chatSessionId": "sess_34a01788-930e-4b64-ba72-0f605b6ea4ca",
+        "timestamp": 1786073617106
+      }
+    ],
+    "11.1 Guard against missing `crypto.randomUUID`": [
+      {
+        "executionId": "2771b399-0c3b-41fb-9501-09896e42823b",
+        "chatSessionId": "sess_e3aaf896-35f8-4398-8781-42fb4e939343",
+        "timestamp": 1786073634394
+      },
+      {
+        "executionId": "2771b399-0c3b-41fb-9501-09896e42823b",
+        "chatSessionId": "sess_e3aaf896-35f8-4398-8781-42fb4e939343",
+        "timestamp": 1786073665291
+      }
+    ],
+    "11.2 Guard against corrupt or non-array localStorage data on load": [
+      {
+        "executionId": "9ee021e1-094e-4d64-9114-6607afbcbc28",
+        "chatSessionId": "sess_c7c1d87c-004e-4190-a057-27ca3029d3ee",
+        "timestamp": 1786073683486
+      },
+      {
+        "executionId": "9ee021e1-094e-4d64-9114-6607afbcbc28",
+        "chatSessionId": "sess_c7c1d87c-004e-4190-a057-27ca3029d3ee",
+        "timestamp": 1786073722866
+      }
+    ],
+    "11.3 Ensure `showError` toast does not stack": [
+      {
+        "executionId": "3523ae2b-a6a6-43b9-a5f4-d953dd8b29e8",
+        "chatSessionId": "sess_d15eb9bf-c59a-45a5-9c6e-641ee2fc554e",
+        "timestamp": 1786073740023
+      },
+      {
+        "executionId": "3523ae2b-a6a6-43b9-a5f4-d953dd8b29e8",
+        "chatSessionId": "sess_d15eb9bf-c59a-45a5-9c6e-641ee2fc554e",
+        "timestamp": 1786073773687
+      }
+    ],
+    "12. Final checkpoint — full integration and smoke verification": [
+      {
+        "executionId": "15f1f312-b02a-48a9-9310-107bb4809379",
+        "chatSessionId": "sess_d3cef43b-b997-4f23-83c4-e44e5e76c51e",
+        "timestamp": 1786073787178
+      },
+      {
+        "executionId": "15f1f312-b02a-48a9-9310-107bb4809379",
+        "chatSessionId": "sess_d3cef43b-b997-4f23-83c4-e44e5e76c51e",
+        "timestamp": 1786073803743
+      }
+    ]
+  }
+}
