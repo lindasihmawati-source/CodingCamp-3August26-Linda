@@ -120,7 +120,7 @@ canvas {
   flex-direction: column;
   align-items: stretch;
   justify-content: center;
-  gap: var(--space-lg);
+  gap: var(--space-sm);
   min-height: 140px;
   padding: 20px var(--space-xl);
   background-color: var(--color-surface);
